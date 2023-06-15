@@ -1,0 +1,47 @@
+<%- include('partials/_header.ejs') -%>
+
+
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Edit Portfolio</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <form id="contactForm" method="POST" action="/photos/<%= photo._id %>?_method=PUT"  class="tm-contact-form" enctype="multipart/form-data">
+            <div class="row align-items-center mb-5" style="flex-direction: column;">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- title input-->
+                        <input class="form-control" id="name" name="title" type="text" placeholder="Photo Title" data-sb-validations="required" value="<%= photo.title %>" />
+                        <div class="invalid-feedback" data-sb-feedback="name:required">title required</div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-textarea mb-md-0">
+                        <!-- Message input-->
+                        <textarea class="form-control" id="message" name="description" placeholder="Photo Description *" data-sb-validations="required"><%= photo.description%></textarea>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">Add photo description</div>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="image" class="form-control rounded-0" >
+                      </div>
+                </div>
+                
+            </div>
+            <div class="d-none" id="submitSuccessMessage">
+                <div class="text-center text-white mb-3">
+                    <div class="fw-bolder">Form submission successful!</div>
+                    To activate this form, sign up at
+                    <br />
+                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                </div>
+            </div>
+            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+            <!-- Submit Button-->
+            <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Edit Photo</button></div>
+        </form>
+    </div>
+</section>
+
+<%- include('partials/_footer.ejs') -%>
